@@ -9,7 +9,7 @@ jobs:
       - name: Latex installation
         run:  sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends latexmk texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-xetex texlive-pictures texlive-lang-french lmodern fonts-font-awesome
       - name: Build the PDF
-        run:  cd example && latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 cv.tex
+        run:  cd example && latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 /home/runner/work/yaac-another-awesome-cv/yaac-another-awesome-cv/example/cv.pdf
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
