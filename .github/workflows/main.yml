@@ -11,7 +11,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: example/cv.tex
+          root_file: /example/cv.tex
           latexmk_use_lualatex: true
       - name: upload artifacts
         uses: actions/upload-artifact@v2
