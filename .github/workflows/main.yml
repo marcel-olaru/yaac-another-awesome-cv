@@ -4,16 +4,18 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: get working directory
-        run: echo $PWD
       - name: Set up Git repository
         uses: actions/checkout@v2
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: cv.tex
-       - name: upload PDF
+      - name: get working directory
+        run: echo $PWD
+      - name: Git installation
+        run: apt-get -qq update; apt-get -y install git
+      - name: Latex installation
+        run: apt-get -qq update && apt-get install -y --no-install-recommends latexmk texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-xetex texlive-pictures texlive-lang-french lmodern fonts-font-awesome
+      - name: Build th PDF
+        run: cd example && latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 cv.tex
+      - name: upload artefacts
         uses: actions/upload-artifact@v2
         with:
           name: PDF
-          path: cv.pdf
+          path: ~/project/example/cv.pdf
