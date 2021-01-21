@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@v2
       - name: get working directory
         run: echo $PWD
+      - name: update
+        run: sudo apt-get update && sudo apt-get upgrade
       - name: Latex installation
         run: sudo apt-get -qq update && apt-get install -y --no-install-recommends latexmk texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-xetex texlive-pictures texlive-lang-french lmodern fonts-font-awesome
       - name: Build th PDF
