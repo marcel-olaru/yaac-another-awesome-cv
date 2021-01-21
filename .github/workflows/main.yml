@@ -9,9 +9,9 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: ./example/cv.tex
+          root_file: cv.tex
        - name: upload PDF
         uses: actions/upload-artifact@v2
         with:
           name: PDF
-          path: ./example/cv.pdf
+          path: cv.pdf
