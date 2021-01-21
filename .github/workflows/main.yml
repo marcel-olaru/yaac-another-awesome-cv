@@ -9,7 +9,7 @@ jobs:
       - name: get working directory
         run: echo $PWD
       - name: Latex installation
-        run: apt-get -qq update && apt-get install -y --no-install-recommends latexmk texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-xetex texlive-pictures texlive-lang-french lmodern fonts-font-awesome
+        run: sudo apt-get -qq update && apt-get install -y --no-install-recommends latexmk texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-xetex texlive-pictures texlive-lang-french lmodern fonts-font-awesome
       - name: Build th PDF
         run: cd example && latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 cv.tex
       - name: upload artifacts
