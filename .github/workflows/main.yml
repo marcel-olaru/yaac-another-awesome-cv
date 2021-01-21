@@ -7,14 +7,14 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: get working directory
-        run: echo $PWD
+        run: echo $PWD && cd example
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: ~/example/cv.tex
+          root_file: cv.tex
           latexmk_use_lualatex: true
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: PDF
-          path: ~/example/cv.pdf
+          path: cv.pdf
