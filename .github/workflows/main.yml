@@ -10,7 +10,6 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ~/example/cv.tex
-          latexmk_use_lualatex: true
        - name: upload PDF
         uses: actions/upload-artifact@v2
         with:
